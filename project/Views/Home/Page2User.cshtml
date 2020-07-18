@@ -1,0 +1,99 @@
+﻿@model  IEnumerable<project.Models.City>
+@{
+    ViewBag.Title = "Index";
+}
+@*@if (Request.Cookies["id"] == null)
+{
+    <h1 style="color:white;"> not user</h1>
+    <div class="container-fluid  mt-2 page2">
+        <div class="row">
+            <div class="col-12  col row justify-content-around align-content-around" id="main-content">
+                @foreach (var item in Model)
+                {
+                    <div class="card m-2" style="width: 21.7rem; height: 23rem;">
+                        <img src="~/images/@item.City_Image"
+                             class="card-img-top" alt="..." height="70%rem">
+                        <div class="card-body">
+                            <a href="/Home/Page3User/?l=0&id=@item.City_Id"> <h5 class="card-title" style="text-align: center;">@item.City_Name</h5> </a>
+                           
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+}
+else*@
+{
+    
+    <!-- start branches -->
+    <div class="container-fluid  mt-2 page2">
+        <div class="row">
+            <div class="col-12  col row justify-content-around align-content-around" id="main-content">
+                @foreach (var item in Model)
+                {
+                    <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".5s" data-wow-iteration="1" style="width: 21.7rem; height: 23rem;">
+                        <img src="~/images/@item.City_Image"
+                             class="card-img-top" alt="..." height="70%rem">
+                        <div class="card-body">
+                            <a href="/Home/Page3User/@item.City_Id"> <h5 class="card-title" style="text-align: center;">@item.City_Name</h5> </a>
+                            @*<h5 class="card-title" style="text-align: center;">@item.City_Name</h5>*@
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <!--  @*<div class="card m-2" style="width: 21.7rem; height: 22rem;">
+                        <img src="~/images/ismailiap2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Ismailia</h5>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 21.7rem; height: 22rem;">
+                        <img src="~/images/cairop2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+
+                            <h5 class="card-title" style="text-align: center;">Cairo</h5>
+
+
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 21.7rem; height: 22rem;">
+                        <img src="~/images/alexp2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Alexandria</h5>
+
+
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 21.7rem; height: 22rem;">
+                        <img src="~/images/aswanp2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Aswan</h5>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 21.7em; height: 22rem;">
+                        <img src="~/images/port saidp2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Port Said</h5>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 21.7rem; height: 22rem">
+                        <img src="~/images/zagazigp2.jpg"
+                             class="card-img-top" alt="..." height="75%rem">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">zagazig</h5>
+                        </div>
+                    </div>*@end branches -->
+@*}*@

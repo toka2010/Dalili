@@ -1,0 +1,71 @@
+* {
+    padding-top: 0px;
+    margin: 0px;
+   
+   background-image: url("images/map1.png");
+
+  /*background-color: #1e1e1e;*/
+}
+body{
+     background-image: url("images/map1.png");
+
+    
+}
+
+form {
+    position: absolute;
+    width: 400px;
+    left: 25%;
+    z-index: 2;
+}
+
+label {
+    color: #fbc531;
+    font-size: 22px;
+    font-weight: 2;
+    padding-right: 50px;
+    
+    
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    top: 15px;
+    position: relative;
+    left: 20%;
+    background-color: #fbc531;
+}
+
+#btncanc {
+    position: relative;
+    margin-left: 20px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+#addinpform{
+    background-image: url("images/map1.png");
+    color: #fbc531;
+}
+#addbtn{
+background-color: #fbc531;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 25px;
+    margin-left: 130px;
+    margin-top: 10px;
+    border: 2px solid #fbc531;
+    color: #fbc531;
+}
+
+form{
+    background-color: #1e1e1e;
+    border: 2px solid #fbc531;
+    width: 50%;
+    padding: 50px; 
+}
+.addcontent{
+    background-color: #1e1e1e;
+}

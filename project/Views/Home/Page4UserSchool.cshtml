@@ -1,0 +1,145 @@
+﻿@model  IEnumerable<project.Models.School>
+@{
+    ViewBag.Title = "Page4UserSchool";
+}
+
+    <div class="container-fluid  mt-2 page4">
+        <div class="row">
+            <div class="col-12  col row justify-content-around align-content-around" id="main-content">
+                @foreach (var item in Model)
+                {
+                    <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1" style="width: 21.7rem;">
+                        <img src="~/images/@item.Image1" class="card-img-top" alt="..." height="70%rem">
+                        <div class="card-body" style="height: 300px;">
+                            <h5 class="card-title" style="text-align: center" ;>@item.School_Name</h5>
+                            <a href="/Home/DetailsUserSchool/@item.School_id" class="btn btn-warning"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @if (Session["id"] != null)
+        {
+            <div class="nearest">
+                <input type="button" class="btn btn-warning" id="displayBtn2" value="Nearest School" onclick="InitMap();">
+            </div>
+            <section class="part3" id="map" style="width: 100%;
+    /*background-color:aliceblue;*/
+    height: 500px;
+    opacity: 0.7;
+    margin-top: 0;
+    border: 1px;
+    margin-bottom:15px;">
+            </section>}
+        </div>
+
+
+<script>
+    var x2 = document.getElementById("map");
+    function getLocation2() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition2, showError2);
+        } else {
+            x2.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition2(position) {
+
+        x2.innerHTML = "<table border='2px' width='190px'> <tr><td>Latitude</td> " + "<td>" + position.coords.latitude +
+            "</td> </tr><tr><td>Longitude</td> " + "<td>" + position.coords.longitude + "</td></tr><tr><td>Accurancy </td>" + "<td>" + position.coords.accuracy +
+            "</td></tr><tr><td>  Date  " + "<td>" + new Date().toISOString() + "</td></tr> </table>";
+    }
+    function showError2(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x2.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x2.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x2.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x2.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+    var map2 = document.querySelector('#map');
+    var displayBtn2 = document.querySelector('#displayBtn2')
+    displayBtn2.addEventListener('click', function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(initMap2, error2)
+        } else {
+            map.innerText = "your browser doesn't support geolocation"
+        }
+    })
+    function initMap2(position) {
+        accur = position.coords.accuracy;
+        var myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'My Current Location'
+        });
+
+        //بجيب الاماكن م الداتابيز
+        //var locations = [
+        //    //lat - lang
+        //    ['My home', 31.2525, 32.3154, 1],
+        //    ['ay zft', 31.2535, 32.3164, 2]
+        //];
+        @foreach(var item in Model){
+         <text>
+            var marker = new google.maps.Marker({
+              map: map,
+              position: { lat: @item.Latitude, lng: @item.Longitude },
+              title: '@item.School_Name'
+            });
+        </text>
+    }
+
+        //var infowindow = new google.maps.InfoWindow();
+        //var marker, i;
+        //for (i = 0; i < locations.length; i++) {
+        //    marker = new google.maps.Marker({
+        //    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        //        map: map
+        //    });
+        //    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        //        return function () {
+        //            infowindow.setContent(locations[i][0]);
+        //            infowindow.open(map, marker);
+        //        }
+        //    })(marker, i));
+        //}
+        //end
+    }
+    function error2(erroObj) {
+        var message = ""
+        switch (erroObj.code) {
+            case 1: {
+                message = "allow me to get your location"
+            }
+                break;
+            case 2: {
+                message = "unable to get location"
+            }
+                break;
+            case 3: {
+                message = "check your connection an try again"
+            }
+                break;
+            default: {
+                message = "unkown error, try again."
+            }
+        }
+        map.innerText = message;
+    }
+</script>

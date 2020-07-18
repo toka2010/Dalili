@@ -1,0 +1,50 @@
+﻿@model project.Models.City
+@{
+    ViewBag.Title = "Page3Admin";
+}
+
+<div class="container-fluid  mt-2">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-8 m-1 row justify-content-around align-content-around  "
+             id="main-content">
+            <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 21.7rem;">
+                <img src="~/images/school1.jpg" class="card-img-top" alt="..." height="70%">
+                <div class="card-body">
+                    <a href="/Home/Page4Admin?l=1">
+                        <h4 class="card-title" style="text-align: center;">Schools</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 21.7rem;">
+                <img src="~/images/res2.jpg" class="card-img-top" alt="..." height="70%">
+                <div class="card-body">
+                    <a href="/Home/Page4Admin?l=2">
+                        <h4 class="card-title" style="text-align: center;">Restaurants</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 21.7rem;">
+                <img src="~/images/hospital1.jpg" class="card-img-top" alt="..." height="70%rem">
+                <div class="card-body">
+                    <a href="/Home/Page4Admin?l=3"><h4 class="card-title" style="text-align: center;">Hospitals</h4></a>
+                </div>
+            </div>
+            <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 21.7rem;">
+                <img src="~/images/hotel3.jpg" class="card-img-top" alt="..." height="70%rem">
+                <div class="card-body">
+                    <a href="/Home/Page4Admin?l=4">
+                        <h4 class="card-title" style="text-align: center;">Hotels</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <aside class="d-none m-1 d-md-block col-md-6 col-lg-3" id="side-content">
+            <div class="card m-2  wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 23em;">
+                <img src="~/images/@Model.City_Image" class="card-img-top" alt="..." height="700rem">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">@Model.City_Name</h5>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

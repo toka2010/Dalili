@@ -1,0 +1,133 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!--IE comptability Meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--First Mobile Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>project</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/fontawesome-free-5.13.0-web/css/all.min.css" rel="stylesheet" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/page2.css" rel="stylesheet" />
+    <link href="~/Content/page3.css" rel="stylesheet" />
+    <link href="~/Content/page4.css" rel="stylesheet" />
+    <link href="~/Content/details.css" rel="stylesheet" />
+    <link href="~/Content/additem2.css" rel="stylesheet" />
+    <link href="~/Content/profile.css" rel="stylesheet" />
+    <link href="~/Content/Editprofile.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBmnATbcsItV07AIzYhG-6E0ZYgZgTkh3w"></script>
+</head>
+
+<body>
+    <!--start navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="mynav">
+        <a class="navbar-brand" href="#">
+            <img src="~/images/logoo.png" class="logo" />
+            <span>دليلي</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link btnnav activee" href="/Home/index"><i class="fas fa-home"></i> HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    @if (Session["type"] == "user")
+                    {
+
+                        <a class="nav-link btnnav" href="/Home/Page2User"><i class="fas fa-map-marker-alt"></i> BRANCHES </a>
+                    }
+                    @if (Session["type"] == "admin")
+                    {
+
+                        <a class="nav-link btnnav" href="/Home/Page2Admin"><i class="fas fa-map-marker-alt"></i> BRANCHES </a>
+                    }
+                    @if (Session["type"] == null)
+                    {
+                        <a class="nav-link btnnav" href="/Home/Page2User"><i class="fas fa-map-marker-alt"></i> BRANCHES </a>
+                    }
+                    @*else
+                        {
+                            <a class="nav-link btnnav" href="/Home/Page2User"><i class="fas fa-map-marker-alt"></i> BRANCHES </a>
+
+                        }*@
+
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link btnnav" href="/Home/index#about-us"><i class="fa fa-info"></i> ABOUT US </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btnnav" href="/Home/index#contact-us"><i class="fa fa-phone"></i> CONTACT </a>
+                </li>
+                @*<li class="nav-item">
+                        <a class="nav-link btnnav" href="/Home/Logout"><i class="fa fa-phone"></i> Logout </a>
+                    </li>*@
+            </ul>
+            @if (Session["log"] == "out")
+            {
+                @*<button type="button" class="btn btn-danger" id="login">
+                        <i class="fa fa-user"></i>  <a href="/Home/Logout"> Logout</a>
+                    </button>*@
+                ///
+                <form class="form-inline my-2 my-lg-0">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" id="login">
+                        <i class="fa fa-user"></i>  <a href="/Home/Logout" style="        text-decoration: none;
+        color: wheat;"> Logout</a>
+                    </button>
+                </form>
+
+            }
+            else
+            {
+                <form class="form-inline my-2 my-lg-0">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" id="login">
+                        <i class="fa fa-user"></i> LOGIN
+                    </button>
+                </form>}
+        </div>
+    </nav>
+    <!--end navbar-->
+    @RenderBody()
+    <!-- start footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <p class="col-sm-8 foot">Copyright &copy; 2020 All Rights Reserved</p>
+                <div class="col-sm-4 footericons">
+                    <a href="https://www.facebook.com/profile.php?id=100052569833774" class="iconlink"><i class="fab fa-facebook-f facebook"></i></a>
+                    <a href="#" class="iconlink"><i class="fab fa-linkedin-in linked-in"></i></a>
+                    <a href="https://twitter.com/XxITIfmWAY7KKnH" class="iconlink"><i class="fab fa-twitter twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- start scroll to top-->
+    <div id="scroll-top">
+        <i class="fa fa-chevron-up fa-3x"></i>
+    </div>
+    <!-- end scroll to top-->
+
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/pligin.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>new WOW().init();</script>
+    @*<script src="~/Scripts/Geolocation.js"></script>*@
+</body>
+</html>

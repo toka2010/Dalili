@@ -1,0 +1,91 @@
+﻿@*@model IEnumerable<project.Models.School>*@
+@model project.Models.School
+@{
+    ViewBag.Title = "AddSchool";
+}
+
+@*@Html.HiddenFor(ww => ww.City_Id)*@
+@*@Html.EditorFor(ww => ww.City_Id, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "city id" } })*@
+@*<form class="loginfrm" action="/Home/AddSchool" method="Post">*@
+<div class="additem">
+    @using (Html.BeginForm(actionName: "AddSchool", controllerName: "Home", method: FormMethod.Post@*, htmlAttributes: new { @class = "addfrm" }*@))
+{
+    <div id="addcontent" style="background-color: #1e1e1e;">
+        <@*div class="form-group">
+            <label for="exampleInputText1">City Name</label>
+            @Html.EditorFor(ww => ww.City_Id, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "City Id" } })
+            @Html.DropDownListFor(ww => ww.City_Id, ViewBag.c as SelectList, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(ww => ww.City_Id, "", htmlAttributes: new { @class = "text-danger" })
+            <input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">
+        </div>*@
+        <div class="form-group">
+            <label for="exampleInputText1">Name</label>
+            @Html.EditorFor(ww => ww.School_Name, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Name" } })
+            @Html.ValidationMessageFor(ww => ww.School_Name, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Phone</label>
+            @Html.EditorFor(ww => ww.Phone, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Phone" } })
+            @Html.ValidationMessageFor(ww => ww.Phone, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Time Open</label>
+            @Html.EditorFor(ww => ww.Open, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Open" } })
+            @Html.ValidationMessageFor(ww => ww.Open, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Time Close</label>
+            @Html.EditorFor(ww => ww.Close, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Close" } })
+            @Html.ValidationMessageFor(ww => ww.Close, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Website</label>
+            @Html.EditorFor(ww => ww.URL, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "URL" } })
+            @Html.ValidationMessageFor(ww => ww.URL, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Longitude</label>
+            @Html.EditorFor(ww => ww.Longitude, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Longitude" } })
+            @Html.ValidationMessageFor(ww => ww.Longitude, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="form-group">
+            <label for="exampleInputText1">Latitude</label>
+            @Html.EditorFor(ww => ww.Latitude, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Latitude" } })
+            @Html.ValidationMessageFor(ww => ww.Latitude, "", htmlAttributes: new { @class = "text-danger" })
+            @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp" name="School_Name">*@
+        </div>
+        <div class="input-group">
+            <div class="custom-file">
+                <label for="exampleInputText1">Image1</label>
+                @Html.EditorFor(ww => ww.Image1, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Image1", type = "file" } })
+                @Html.ValidationMessageFor(ww => ww.Image1, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="custom-file">
+                <label for="exampleInputText1">Image2</label>
+                @Html.EditorFor(ww => ww.Image2, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Image2", type = "file" } })
+                @Html.ValidationMessageFor(ww => ww.Image2, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="custom-file">
+                <label for="exampleInputText1">Image3</label>
+                @Html.EditorFor(ww => ww.Image3, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Image3", type = "file" } })
+                @Html.ValidationMessageFor(ww => ww.Image3, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="addbtn">
+            <button type="submit" id="addbtn">Add</button>
+        </div>
+    </div>
+}
+</div>
+@*</form>*@
+

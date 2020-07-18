@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="det_content details">
+        <section class="part1">
+            <h1> Flames Restaurant </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="~/images/download1.jpg">
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="http://shorturl.at/owCD6"> <img src="~/images/download4.jpg"> </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="~/images/download3.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="part2">
+            <div class="container detdata">
+                <h2>Details</h2>
+                <form>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="Flames Restaurant" id="name" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Phone:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="+201124006000" id="phone" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Open:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="10AM" id="open" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Close:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="10AM" id="close"
+                                   disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Link:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="https://www.facebook.com/flameseg/?ref=page_internal" id="url" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row btns">
+                        <div class="col-sm-12">
+                            <!-- <button class="btn btn-warning" id="displayBtn">Show Map</button> -->
+                            <input type="button" class="btn btn-warning" id="displayBtn" value="Show Map">
+                            <input type="button" class="btn btn-success" id="edit" value="Edit">
+                            <input type="button" class="btn btn-primary" id="save" value="Save">
+                            <input type="button" class="btn btn-danger" id="cancel" value="Cancel">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="part3" id="map">
+        </section>
+    </div>

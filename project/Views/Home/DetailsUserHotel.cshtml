@@ -1,0 +1,171 @@
+﻿@model project.Models.Hotel
+@{
+    ViewBag.Title = "DetailsUserHotel";
+}
+
+<form method="get" action="/Home/DetailsUserHotel">
+    <input type="hidden" name="id" value="@Model.Hotel_id" />
+    <div class="det_content details">
+        <section class="part1">
+            <h1>@Model.Hotel_Name </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 wow fadeInDown" data-wow-duration=".8s" data-wow-delay="0s" data-wow-iteration="1">
+                        <img src="~/images/@Model.Image1">
+                    </div>
+                    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                        <a href="http://shorturl.at/owCD6"> <img src="~/images/@Model.Image2" /> </a>
+                    </div>
+                    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1.25s" data-wow-delay="0s" data-wow-iteration="1">
+                        <img src="~/images/@Model.Image3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="part2">
+            <div class="container detdata">
+                <h2>Details</h2>
+                <form>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="@Model.Hotel_Name" id="name" name="Hotel_Name" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Phone:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="@Model.Phone" id="phone" name="Phone" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Open:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="@Model.Open" id="open" name="Open" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Close:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="@Model.Close" id="close" name="Close" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="#" class="col-sm-2 col-form-label">Link:</label>
+                        <div class="col-sm-10">
+                            <a href="@Model.URL">
+                                <input type="text" class="form-control"
+                                       value="@Model.URL" name="Url" id="url" disabled>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="button" class="btn btn-warning" id="displayBtn" value="Show Map">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="part3" id="map">
+        </section>
+    </div>
+</form>
+<script>
+//import { Modal } from "../../Scripts/bootstrap.bundle";
+
+
+    var x = document.getElementById("map");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+
+        x.innerHTML = "<table border='2px' width='190px'> <tr><td>Latitude</td> " + "<td>" + position.coords.latitude +
+            "</td> </tr><tr><td>Longitude</td> " + "<td>" + position.coords.longitude + "</td></tr><tr><td>Accurancy </td>" + "<td>" + position.coords.accuracy +
+            "</td></tr><tr><td>  Date  " + "<td>" + new Date().toISOString() + "</td></tr> </table>";
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+    var map = document.querySelector('#map');
+    var displayBtn = document.querySelector('#displayBtn')
+    displayBtn.addEventListener('click', function () {
+        if (navigator.geolocation) {
+            //b support geolocation
+            navigator.geolocation.getCurrentPosition(initMap, error)
+        } else {
+            map.innerText = "your browser doesn't support geolocation"
+        }
+    })
+
+    function initMap(position) {
+        accur = position.coords.accuracy;
+        var myLatLng = { lat: @Model.Latitude , lng:@Model.Longitude };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 20,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: '@Model.Hotel_Name'
+        });
+    }
+
+
+    function error(erroObj) {
+        var message = ""
+        switch (erroObj.code) {
+            case 1: {
+                message = "allow me to get your location"
+            }
+                break;
+            case 2: {
+                message = "unable to get location"
+            }
+                break;
+            case 3: {
+                message = "check your connection an try again"
+            }
+                break;
+            default: {
+                message = "unkown error, try again."
+            }
+        }
+        map.innerText = message;
+    }
+
+
+
+//var datee=new Date().toISOString();
+//console.log(datee);
+ //var accur = position.coords.accuracy;
+ //console.log( accur);
+
+
+
+</script>

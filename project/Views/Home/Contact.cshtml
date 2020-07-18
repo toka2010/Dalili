@@ -1,0 +1,47 @@
+﻿@model project.Models.ContactModel
+
+<!--start contact form-->
+<section class="text-center">
+    <div class="con-title">
+        <i class="fa fa-headphones fa-5x"></i>
+        <h1>Contact us</h1>
+    </div>
+    @using (Html.BeginForm(actionName: "Contact", controllerName: "Home", method: FormMethod.Post, htmlAttributes: new { @class = "contact" }))
+    {
+        <div class="col-lg-12">
+            @Html.ValidationSummary(true)
+            <div class="row">
+                @Html.LabelFor(model => model.FirstName, "First Name:")
+                @Html.EditorFor(ww => ww.FirstName, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "User Name" } })
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <br />
+            <div class="row">
+                @Html.EditorFor(ww => ww.Supject, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Subject" } })
+            </div>
+            <br />
+            <div class="row">
+                @Html.EditorFor(ww => ww.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Email" } })
+            </div>
+            <br />
+            <div class="row">
+                @Html.EditorFor(ww => ww.Password, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Password" } })
+            </div>
+            <br />
+            <div class="row">
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control input-lg", PlaceHolder = "Message" })
+            </div>
+            <br />
+            <div class="row">
+                <input type="submit" value="Contact" class="btn btn-warning btn-lg btn-block" />
+            </div>
+        </div>
+    }
+    <div>
+        @if (ViewBag.Message != null)
+        {
+            <div style="text-align:center; color:white; font-style:italic;">@ViewBag.Message</div>
+        }
+    </div>
+</section>
+<!--end contact form-->

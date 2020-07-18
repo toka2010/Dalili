@@ -1,0 +1,27 @@
+﻿@model  IEnumerable<project.Models.Hospital>
+@{
+    ViewBag.Title = "Page4AdminHospital";
+}
+
+<div class="container-fluid  mt-2 page4">
+    <div class="row">
+        <div class="col-12  col row justify-content-around align-content-around   " id="main-content">
+            @foreach (var item in Model)
+            {
+                <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1" style="width: 21.7rem;height:30rem ; ">
+
+                    <img src="~/images/@item.Image1" class="card-img-top" alt="..." height="70%">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">@item.Hospital_Name</h5>
+                        <a href="/Home/DetailsAdminHospitalEdit/@item.Hospital_id" class="btn btn-success"><i class="fas fa-edit"></i> Edit</a>
+                        <a href="/Home/DetailsAdminHospitalDelete/@item.Hospital_id" class="btn btn-danger" onclick="return confirm('Are You Sure  You Want To Delete?')"><i class="fas fa-trash-alt"></i> Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="float: right; margin: 2rem;">
+            <a href="/Home/AddHospital"> <button type="button" class="btn btn-outline-warning"><i class="far fa-calendar-plus"></i> Add Hospital</button></a>
+            <a href="/Home/Page3Admin/@Session["cityid"]"> <button class="btn btn-outline-warning"><i class="fas fa-long-arrow-alt-left"></i> Back To Our Services </button></a>
+        </div>
+    </div>
+</div>

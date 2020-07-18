@@ -1,0 +1,38 @@
+﻿@model  IEnumerable<project.Models.City>
+@*@if (Request.Cookies["id"] == null)
+{
+    <p style="color:white;"> @Html.ActionLink("LoginPlease", "Index", "Home")  </p>
+
+}*@
+
+
+@*@{ var u_id = Session["u_id"] as project.Models.User;}*@
+@{
+    ViewBag.Title = "Page2Admin";
+}
+
+<div class="container-fluid  mt-2 page2">
+    <div class="row">
+        <div class="col-12  col row justify-content-around align-content-around" id="main-content">
+            @foreach (var item in Model)
+            {
+                <div class="card m-2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s" data-wow-iteration="1" style="width: 21.7rem; height: 23rem;">
+                    <img src="~/images/@item.City_Image"
+                         class="card-img-top" alt="..." height="70%rem">
+                    <div class="card-body">
+                        <a href="/Home/Page3Admin/@item.City_Id"> <h5 class="card-title" style="text-align: center;">@item.City_Name</h5> </a>
+                        <a href="/Home/Delete/@item.City_Id" class="btn btn-danger" onclick="return confirm('Are You Sure  You Want To Delete?')"><i class="fas fa-trash-alt"></i> Delete</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div style="float: right; margin: 2rem; width:100%">
+            @*@string id= @Request.Cookies["id"]*@
+            <a href="/Home/ViewProfile" style="float:right"> <button type="button" class="btn btn-warning"><i class="far fa-address-card"></i> Profile</button></a>
+            <a href="/Home/AddAdmin"> <button type="button" class="btn btn-outline-warning"><i class="fas fa-user-plus"></i> Add Admin</button></a>
+            <a href="/Home/AddCity"> <button type="button" class="btn btn-outline-warning"><i class="far fa-calendar-plus"></i> Add City</button></a>
+            @*<a href="/Home/AddService"> <button type="button" class="btn btn-outline-warning">Add Service</button></a>*@
+        </div>
+    </div>
+</div>

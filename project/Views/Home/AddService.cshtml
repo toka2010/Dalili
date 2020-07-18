@@ -1,0 +1,80 @@
+﻿@*@model project.Models*@
+@{
+    ViewBag.Title = "AddService";
+}
+@using (Html.BeginForm(actionName: "AddCity", controllerName: "Home", method: FormMethod.Post))
+{
+    <div class="additem">
+        <form>
+            <div id="addcontent" style="background-color: #1e1e1e;">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">city</label>
+                    <input type="text" class="form-control addinpform" id="exampleInputPassword1"
+                           style="color:#fbc531;">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Address</label>
+                    <input type="text" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Phone</label>
+                    <input type="number" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Time Open</label>
+                    <input type="text" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Website</label>
+                    <input type="text" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Longitude</label>
+                    <input type="number" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Latitude</label>
+                    <input type="number" class="form-control addinpform" id="exampleInputPassword1">
+                </div>
+
+
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="addinpform" style="background-color: #1e1e1e;"
+                               id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose image 1</label>
+                    </div>
+                    <div class="input-group-append">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="addinpform" id="inputGroupFile04"
+                               aria-describedby="inputGroupFileAddon04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose image 2</label>
+                    </div>
+                    <div class="input-group-append">
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="addinpform" id="inputGroupFile04"
+                               aria-describedby="inputGroupFileAddon04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose image 3</label>
+                    </div>
+                    <div class="input-group-append">
+                    </div>
+                </div>
+                <div class="addbtn">
+                    <button id="addbtn">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>

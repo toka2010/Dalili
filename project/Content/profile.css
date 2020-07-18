@@ -1,0 +1,41 @@
+/*start edit profile*/
+.profile{
+    background-color: #1e1e1e;
+}
+.profile h1{
+    color: #fbc531;
+    font-family: cursive;
+    font-weight: bold;
+    border-bottom: 2px solid #fbc531;
+    padding: 20px;
+}
+.profile h1, .-profile h4{
+    color: #fbc531;
+}
+.profile .img-circle{
+    width: 200px;
+}
+.profile input{
+    border-radius: 50px;
+}
+.profile label{
+    color: #fbc531;
+}
+.profile .form-control{
+    color: #1e1e1e;
+}
+.profile .col-md-3, .profile .personal-info{
+    margin-top: 50px;
+}
+.profile .name{
+    background-color: #1e1e1e;
+    color: #fbc531;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+.edit-profile a:hover {
+    text-decoration: none;
+}
+/*end edit profile*/

@@ -1,0 +1,35 @@
+﻿@model project.Models.City
+@{
+    ViewBag.Title = "AddCity";
+}
+
+
+<div class="additem">
+    @using (Html.BeginForm(actionName: "AddCity", controllerName: "Home", method: FormMethod.Post))
+    {
+        @*<form>*@
+        <div @*id="addcontent"*@ @*style="background-color: #1e1e1e;"*@>
+            <div class="form-group">
+                <label for="exampleInputEmail1">City Name</label>
+                @Html.EditorFor(ww => ww.City_Name, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "City Name" } })
+                @Html.ValidationMessageFor(ww => ww.City_Name, "", htmlAttributes: new { @class = "text-danger errmsg" })
+
+                @*<input type="text" class="form-control addinpform" id="exampleInputEmail1" aria-describedby="emailHelp">*@
+            </div>
+            <div class="input-group">
+                <div class="custom-file">
+                    @*<label for="exampleInputEmail1">City Image:</label>*@
+                    <input type="file" class="custom-file-input addinpform" @*style="background-color: #1e1e1e;"*@ @*id="inputGroupFile04"*@ aria-describedby="inputGroupFileAddon04" name="City_Image">
+                    <label class="custom-file-label" for="inputGroupFile04" style="background-color: yellow;">City Image</label>
+                </div>
+                @*<div class="input-group-append">
+                    </div>*@
+            </div>
+            <div class="addbtn">
+                <button type="submit" id="addbtn">Add</button>
+            </div>
+        </div>
+
+        @*</form>*@
+    }
+</div>

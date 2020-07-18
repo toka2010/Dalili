@@ -1,0 +1,36 @@
+#cont::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+              .divss{
+                  float: left;
+    width: 33.33%;
+    padding: 50px;
+    padding-left: 100px;
+                 
+              }
+              
+              
+              #imag>img{
+    float: right;
+    width: 700px;
+    right: 0px;
+    padding-top:70px ;
+    
+   }
+   #para{
+       top:0;
+      padding-top: 130px;
+  
+   }
+   #para>p{
+     font-size: 20px;
+  
+   }
+   
+  
+   #imag{
+      padding-left: 240px;
+  
+   }

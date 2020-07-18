@@ -1,0 +1,17 @@
+.page3 .carousel-inner>.carousel-item>img{
+    height: 33em;
+}
+.page3 h4 {
+    color: black;
+    font-weight: bold;
+    font-family: cursive;
+}
+.page3 a:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    transition: ease-in-out .5s;
+}
+
+/*body{
+    background-color: #1e1e1e;
+}*/

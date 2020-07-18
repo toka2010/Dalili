@@ -1,0 +1,92 @@
+﻿@model project.Models.User
+@{
+    ViewBag.Title = "AddAdmin";
+}
+
+<!--start Add Admin-->
+@using (Html.BeginForm(actionName: "AddAdmin", controllerName: "Home", method: FormMethod.Post))
+{
+    <section class="edit-profile">
+        <div class="container">
+            <h1>Add Admin</h1>
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <img src="~/images/profile.png" class="avatar img-circle" alt="avatar">
+                        @*<h4>Upload a different photo...</h4>
+                            <input type="file" class="form-control">*@
+                    </div>
+                </div>
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info">
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Personal name:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.Name, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Name" } })
+                            @Html.ValidationMessageFor(ww => ww.Name, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type="text" placeholder="Enter your name" value="">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Email" } })
+                            @Html.ValidationMessageFor(ww => ww.Email, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type="text" placeholder="Enter your email" value="">*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Password:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.Password, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Password" } })
+                            @Html.ValidationMessageFor(ww => ww.Password, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type="password" placeholder="Enter password" value="">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Confirm password:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.ConfirmPassword, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Confirm Password" } })
+                            @Html.ValidationMessageFor(ww => ww.ConfirmPassword, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type="password" placeholder="confirm password" value="">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Phone:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.Phone, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Phone" } })
+                            @Html.ValidationMessageFor(ww => ww.Phone, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type=number placeholder="Phone Number" value="">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Address:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(ww => ww.Address, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Address" } })
+                            @Html.ValidationMessageFor(ww => ww.Address, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                            @*<input class="form-control" type=text placeholder="City" value="">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <
+                        <div class="col-lg-8">
+                            <input type="submit" class="btn btn-info" value="Save">
+
+                            <span></span>
+                            <button class="btn btn-danger"><a href="/Home/Page2Admin">Cancel</a></button>
+                            @*<input type="reset" class="btn btn-danger" value="Cancel">*@
+                        </div>
+                    </div>
+                    <
+
+
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+}
